@@ -9,16 +9,16 @@ function App() {
   const [form, setForm] = useState({ name: "", email: "" });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((res) => {
+    axios.get("https://projet-a-deployer.onrender.com/users").then((res) => {
       setUsers(res.data);
     });
   }, []);
-
+    
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/users", form);
+    await axios.post("https://projet-a-deployer.onrender.com/users", form);
     setForm({ name: "", email: "" });
-    const res = await axios.get("http://localhost:5000/users");
+    const res = await axios.get("https://projet-a-deployer.onrender.com/users");
     setUsers(res.data);
   };
 
